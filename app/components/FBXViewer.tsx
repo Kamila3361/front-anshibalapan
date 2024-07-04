@@ -12,7 +12,11 @@ type FBXModelProps = {
 };
 
 const FBXModel: React.FC<FBXModelProps> = ({ urls }) => {
-  const fbxRefs = useRef(urls.map(url => useFBX(encodeURI(url))));
+  const fbxRef1 = useFBX(encodeURI(urls[0]));
+  const fbxRef2 = useFBX(encodeURI(urls[1]));
+  const fbxRef3 = useFBX(encodeURI(urls[2]));
+  const fbxRef4 = useFBX(encodeURI(urls[3]));
+  const fbxRefs = useRef([fbxRef1, fbxRef2, fbxRef3, fbxRef4]);
   const mixer = useRef<THREE.AnimationMixer | null>(null);
   const [currentAnimation, setCurrentAnimation] = useState(0);
   const [prevAction, setPrevAction] = useState<THREE.AnimationAction | null>(null);
