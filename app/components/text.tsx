@@ -48,7 +48,7 @@ export function TextareaWithButton() {
     </div>
       <Button className="bg-purple" onClick={handleGenerateSong}>Send</Button>
       {isSuccess && <div className="text-white">Song add to the playlist</div>}
-      {isError && <div className="text-white">Error</div>}
+      {/* {isError && <div className="text-white">Error</div>} */}
     </div>
   )
 }
