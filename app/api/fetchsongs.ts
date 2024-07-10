@@ -10,12 +10,12 @@ export interface SongType {
     key_song: string;
     poster_location: string;
     key_poster: string;
-    tags: string;
+    tags: string[];
     created_at: string;
 }
 
 const fetchSongs = async (): Promise<SongType[]> => {
-    const response = await axiosInstance.get("/api/v5/song/allsongs");
+    const response = await axiosInstance.get("/song/allsongs");
     return response.data;
 };
 
