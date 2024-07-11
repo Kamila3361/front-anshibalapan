@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-placeholder::placeholder {
+  color: black;
+}
+
 @layer base {
     :root {
       --background: 0 0% 100%;

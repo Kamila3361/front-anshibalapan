@@ -27,27 +27,30 @@ export function TextareaWithButton() {
   }
 
   return (
-    <div className="grid w-full gap-2">
-      <Textarea placeholder="Yout prompt here" onChange={(e) => setPrompt(e.target.value)} className="text-white text-lg bg-transparent w-[400px] h-[300px] border-purple border-2 divide-opacity-20" />
-      <div className="relative inline-block w-full">
-      <select
-        value={selectedOption}
-        onChange={(option) => setSelectedOption(option.target.value)}
-        className="block appearance-none w-full text-white border border-purple bg-transparent hover:border-white px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-      >
-        <option value="None" className="bg-black">None</option>
-        <option value="Dua Lipa" className="bg-black">Dua Lipa</option>
-        <option value="Lana Del Rey" className="bg-black">Lana Del Rey</option>
-        <option value="Taylor Swift" className="bg-black">Taylor Swift</option>
-      </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-          <path d="M7 10l5 5 5-5H7z" />
-        </svg>
+    <div className="flex flex-col w-full gap-2 bg-white bg-opacity-10 rounded-2xl backdrop-blur-sm p-[15px] m-[10px]">
+      <h1 className='text-5xl font-bold relative'>Oz Olen</h1>
+      <div className='relative'>
+        <input type='text' placeholder='Here' className='w-[310px] h-[100px] pl-[15px] pb-[60px] text-black rounded-2xl bg-white bg-opacity-20 custom-placeholder shadow-lg backdrop-blur-sm'/>
       </div>
-    </div>
-      <Button className="bg-purple" onClick={handleGenerateSong}>Send</Button>
-      {isSuccess && <div className="text-white">Song add to the playlist</div>}
+      <div className="relative inline-block w-[310px]">
+        <select
+          value={selectedOption}
+          onChange={(option) => setSelectedOption(option.target.value)}
+          className="block appearance-none text-black hover:border-white px-[15px] py-2 pr-8 rounded-2xl shadow leading-tight focus:outline-none shadow-lg bg-white bg-opacity-20 backdrop-blur-sm"
+        >
+          <option value="None">None</option>
+          <option value="Dua Lipa">Dua Lipa</option>
+          <option value="Lana Del Rey">Lana Del Rey</option>
+          <option value="Taylor Swift">Taylor Swift</option>
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M7 10l5 5 5-5H7z" />
+          </svg>
+        </div>
+      </div>
+      <button className="bg-white bg-opacity-20 backdrop-blur-sm text-black rounded-2xl h-[35px] shadow-lg w-[310px] hover:bg-opacity-40" onClick={handleGenerateSong}>Send</button>
+      {isSuccess && <div className="text-black">Song add to the playlist</div>}
       {/* {isError && <div className="text-white">Error</div>} */}
     </div>
   )

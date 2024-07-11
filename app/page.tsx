@@ -20,14 +20,14 @@ export default function Home() {
   ]
 
   return (
-    <div className='flex h-[110vh] bg-cover bg-center bg-[url("/model/sky.jpg")] bg-fixed'> {/*bg-cover bg-center bg-[url("/model/tau.jpg")]*/}
+    <div className='flex bg-cover bg-center bg-[url("/model/sky.jpg")] bg-fixed'> {/*bg-cover bg-center bg-[url("/model/tau.jpg")]*/}
       <Songs />
       {/* <div className='flex-1 h-full w-[1100px] fixed ml-[350px]'>
         <FBXViewer urls={animations} />
       </div> */}
-      {/* <div className='fixed right-[100px] top-[100px]'>
+      <div>
         <TextareaWithButton />
-      </div> */}
+      </div>
     </div>
   );
 }

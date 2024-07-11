@@ -64,7 +64,7 @@ export default function Song({ title, tags, songUrl }: PlaylistsCardProps){
   };
 
   return (
-    <div className="flex justify-center items-center bg-white bg-opacity-40 rounded-2xl pr-[25px] h-[80px]">
+    <div className="flex flex-row justify-center items-center bg-white bg-opacity-20 rounded-2xl pr-[18px] h-[80px] w-[310px] shadow-lg backdrop-blur-sm">
       <div>
         <button
           className="text-3xl bg-opacity-0 text-black p-2 mx-2"
