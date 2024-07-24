@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { axiosInstance } from "../axios/axiosINstance";
+import { MouthCue } from "../context/sing";
 
 export interface SongType {
     title: string;
@@ -12,6 +13,7 @@ export interface SongType {
     key_poster: string;
     tags: string[];
     created_at: string;
+    mouth_cue: MouthCue[];
 }
 
 const fetchSongs = async (): Promise<SongType[]> => {

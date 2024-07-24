@@ -2,15 +2,21 @@
 
 import { useMutation, useQueryClient, UseMutationResult} from "@tanstack/react-query";
 import { axiosInstance } from "../axios/axiosINstance";
-import { SongType } from "./fetchsongs";
+import { MouthCue } from "../context/sing";
 
 interface SongData{
     prompt: string;
     voice?: string;
 }
 
+interface SongType {
+    musicUrl: string;
+    title: string;
+    mouthCues: MouthCue[];
+}
+
 const generateSong = async (postData: SongData) => {
-    const response = await axiosInstance.post("/api/v5/song/generate", postData);
+    const response = await axiosInstance.post("/song/generate", postData);
     console.log(response.data);
     return response.data;
 };

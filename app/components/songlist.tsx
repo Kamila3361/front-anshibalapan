@@ -1,34 +1,44 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Song from './song';
 import { useSongs } from '../api/fetchsongs';
 import '../globals.css';
 
-const songsData = ["song1", "song2"];
-
 const Songs = () => {
-  const {data, isLoading, isSuccess} = useSongs();
-  
+  const { data, isLoading, isSuccess } = useSongs();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filter songs based on search query
+  const filteredSongs = isSuccess 
+    ? data.filter(song => 
+        song.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (Array.isArray(song.tags) && song.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())))
+      ) 
+    : [];
 
   return (
-    <div className='flex flex-col gap-[15px] bg-white bg-opacity-10 p-[15px] m-[10px] rounded-2xl backdrop-blur-sm'>
-      <h1 className='text-5xl font-bold relative'>Music</h1>
-      <div className='relative'>
-        <input type='text' placeholder='Search' className='w-[310px] h-[35px] pl-[15px] text-black rounded-2xl bg-white bg-opacity-20 custom-placeholder shadow backdrop-blur-sm'/>
+    <div className='flex flex-col gap-[15px] bg-white bg-opacity-20 p-[15px] m-[10px] rounded-2xl backdrop-blur-sm pointer-events-auto' style={{ height: 'calc(100vh - 20px)', marginBottom: '20px' }}>
+      <h1 className='text-5xl font-bold'>Music</h1>
+      <div>
+        <input 
+          type='text' 
+          placeholder='Search' 
+          className='w-[310px] h-[40px] pl-[15px] text-black rounded-2xl bg-white bg-opacity-20 custom-placeholder shadow backdrop-blur-sm text-xl'
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </div>
-      <div className='flex flex-col gap-[10px]'>
-        {isSuccess && data?.map((song, index) => 
-          (
-            <span key={index}>
-              <Song title={song.title} tags={song.tags} songUrl={song.song_location}/>
-            </span>
-          )
-        )}
+      <div className='flex flex-col gap-[10px] overflow-y-auto' style={{ flexGrow: 1 }}>
+        {isSuccess && filteredSongs.slice().reverse().map((song, index) => (
+          <span key={index}>
+            <Song title={song.title} tags={song.tags} songUrl={song.song_location} mouthCues={song.mouth_cue}/>
+          </span>
+        ))}
       </div>
     </div>
-    
   )
 }
 
-export default Songs
+export default Songs;
+
