@@ -12,7 +12,7 @@ interface SongData{
 interface SongType {
     musicUrl: string;
     title: string;
-    mouthCues: MouthCue[];
+    // mouthCues: MouthCue[];
 }
 
 const generateSong = async (postData: SongData) => {

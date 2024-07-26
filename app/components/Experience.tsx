@@ -1,27 +1,28 @@
+// Experience.js
 "use client";
 
-import { Environment, OrbitControls, useTexture, CameraControls } from "@react-three/drei";
+import { Environment, OrbitControls, useTexture } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { Avatar } from "./Avatar";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
-export const Experience = () => {
+interface Props {
+  avatarPosition: [number, number, number];
+  scale: number;
+}
+
+export const Experience = ({avatarPosition, scale}: Props) => {
   const texture = useTexture("/model/stage2.png");
   const viewport = useThree((state) => state.viewport);
-  const cameraControls = useRef<CameraControls | null>(null);
+  const orbitControls = useRef(null);
 
-  useEffect(() => {
-    if (cameraControls.current) {
-      cameraControls.current.setLookAt(0, 0, 4, 0, 0, 0, true);
-    }
-  }, []);
   return (
     <>
-      <CameraControls ref={cameraControls} />
-      <Avatar position={[0, -0.7, 0]} scale={0.5} rotation={[Math.PI / 2, 0, 0]}/>
+      <OrbitControls ref={orbitControls} />
+      <Avatar position={avatarPosition} scale={scale}/>
       <Environment preset="sunset" />
-      <mesh position={[0, 0, -0.5]}>
-        <planeGeometry args={[viewport.width + 1.55, viewport.height + 0.8]} />
+      <mesh position={[0, 0, 0]}>
+        <planeGeometry args={[viewport.width, viewport.height]} />
         <meshBasicMaterial map={texture} />
       </mesh>
     </>

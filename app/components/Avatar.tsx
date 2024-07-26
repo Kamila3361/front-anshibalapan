@@ -53,7 +53,7 @@ export function Avatar(props: JSX.IntrinsicElements['group']) {
   const { scene } = useGLTF('/model/girl.glb');
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone) as unknown as GLTFResult;
-  const { mouthCue, currentTime, isPlaying, audioRef, animation, setAnimation } = useSinging();
+  const { mouthCue, currentTime, isPlaying, audioRef, animation, setAnimation, isLyric } = useSinging();
   const [index, setIndex] = useState(0);
 
   useEffect(() => { 
@@ -69,10 +69,10 @@ export function Avatar(props: JSX.IntrinsicElements['group']) {
     }
   }, [isPlaying, index, currentTime, mouthCue]);
 
-  const { animations } = useGLTF("/animations/animations5.glb");
+  const { animations } = useGLTF("/animations/animations6.glb");
 
   const group = useRef<THREE.Group>(null);
-  const { actions, mixer } = useAnimations(animations, group);
+  const { actions } = useAnimations(animations, group);
   // const [animation, setAnimation] = useState("Happy");
 
   useEffect(() => {
@@ -87,52 +87,6 @@ export function Avatar(props: JSX.IntrinsicElements['group']) {
       }
     };
   }, [animation, actions]);
-
-  // const animationSequence = [
-  //   "KissBlow",
-  //   "Happy",
-  //   "BreakDanceReady",
-  //   "HappyHand",
-  //   "ListeningMusic",
-  //   "ShackingHead",
-  //   "Talking",
-  //   "VictoryIdle",
-  // ];
-
-  // const playNextAnimation = () => {
-  //   const nextIndex = Math.floor(Math.random() * animationSequence.length);
-  //   const nextAnimation = animationSequence[nextIndex];
-  //   console.log("nextAnimation: ", nextAnimation);
-  //   setIndex(index + 1);
-  //   setAnimation(nextAnimation);
-  // };
-
-  // useEffect(() => {
-  //   if (isPlaying && actions && actions[animation]) {
-  //     const animationAction = actions[animation];
-  //     const clip = animationAction?.getClip();
-  
-  //     console.log(animation);
-
-  //     // Ensure clip and its duration are defined
-  //     if (clip && clip.duration) {
-  //       animationAction?.reset().fadeIn(0.5).play();
-  //       const duration = clip.duration * 1000;
-  
-  //       const timeoutId = setTimeout(() => {
-  //         // animationAction.fadeOut(0.5);
-  //         playNextAnimation();
-  //       }, duration);
-  
-  //       return () => {
-  //         clearTimeout(timeoutId);
-  //         animationAction?.fadeOut(0.5);
-  //       };
-  //     } else {
-  //       console.warn('Animation clip or duration is undefined.');
-  //     }
-  //   }
-  // }, [animation, index, isPlaying]);
 
   useFrame(() => {
   if (audioRef.current?.ended) {
