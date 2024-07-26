@@ -11,14 +11,14 @@ import { Experience } from "./components/Experience";
 import { Canvas } from "@react-three/fiber";
 
 export default function Home() {
-  useEffect(() => {
-    // Prevent scrolling
-    document.body.style.overflow = 'hidden';
-    return () => {
-      // Restore scroll when component unmounts
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
+  // useEffect(() => {
+  //   // Prevent scrolling
+  //   document.body.style.overflow = 'hidden';
+  //   return () => {
+  //     // Restore scroll when component unmounts
+  //     document.body.style.overflow = 'auto';
+  //   };
+  // }, []);
 
   return (
     <div className="relative flex items-center justify-center w-full h-screen bg-cover bg-center bg-[url('/model/stage2.png')]">

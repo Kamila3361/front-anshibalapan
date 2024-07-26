@@ -88,7 +88,7 @@ export default function MusicBlock({title, songUrl}: PlaylistsCardProps) {
         <span className="text-black">{Math.floor(duration / 60)}:{('0' + Math.floor(duration % 60)).slice(-2)}</span>
       </div>
       <div>
-        <button className="text-3xl bg-opacity-0 text-black p-2 mx-2" onClick={handlePlayPause}>
+        <button className="text-3xl bg-opacity-0 text-black p-2 mx-2" onClick={handlePlayPause} disabled={audioRef.current == null}>
           {isPlaying ? <RiPauseFill /> : <RiPlayFill />}
         </button>
         <button

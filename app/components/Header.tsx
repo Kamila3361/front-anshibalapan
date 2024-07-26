@@ -32,7 +32,7 @@ const Header = () => {
       </div>
       
       {/* Mobile Dropdown Menu */}
-      <div className={`fixed top-full right-0 w-full bg-white bg-opacity-20 backdrop-blur-md shadow-lg z-40 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+      <div className={`fixed top-20 left-0 w-full bg-white bg-opacity-20 backdrop-blur-md shadow-lg z-40 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0 opacity-100 visible' : '-translate-y-full opacity-0 invisible'}`}>
         <div className="flex flex-col items-end p-4">
           <Link href="/" className="text-2xl font-semibold mb-4 hover:underline" onClick={() => setIsMenuOpen(false)}>Жаңа Әуен</Link>
           <Link href="/songs" className="text-2xl font-semibold mb-4 hover:underline" onClick={() => setIsMenuOpen(false)}>Әуендер</Link>
@@ -43,6 +43,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
 
