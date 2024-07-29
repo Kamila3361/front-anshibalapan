@@ -11,7 +11,7 @@ import { ErrorModal } from "./Error";
 import { LoadingModal } from "./Loading";
 
 export function TextareaWithButton() {
-  const [selectedOption, setSelectedOption] = useState<string>('');
+  // const [selectedOption, setSelectedOption] = useState<string>('');
   const [prompt, setPrompt] = useState<string>('');
   const { mutate: generateSong, isPending: isGenerating, isError: generatingError, isSuccess: isGenerated, data: newSong } = useCreateSong();
   const [showError, setShowError] = useState<boolean>(false);
@@ -20,12 +20,11 @@ export function TextareaWithButton() {
   const [songUrl, setSongUrl] = useState<string>('');
 
   const handleGenerateSong = () => {
-    if (selectedOption === 'None') {
+    // if (selectedOption === 'None') {
       generateSong({ prompt: prompt });
-    } else {
-      generateSong({ prompt: prompt, voice: selectedOption });
-    }
-    setPrompt('');
+    // } else {
+    //   generateSong({ prompt: prompt, voice: selectedOption });
+    // }
   };
 
   useEffect(() => {
@@ -56,7 +55,7 @@ export function TextareaWithButton() {
             onChange={(e) => setPrompt(e.target.value)}
             className='w-full text-xl h-[200px] md:h-[300px] pl-[15px] pt-[10px] text-black rounded-2xl bg-white bg-opacity-20 custom-placeholder shadow-lg backdrop-blur-sm resize-none'
           />
-        </div>
+        {/* </div>
         <div className="relative inline-block w-full">
           <select
             value={selectedOption}
@@ -72,7 +71,7 @@ export function TextareaWithButton() {
             <svg className="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M7 10l5 5 5-5H7z" />
             </svg>
-          </div>
+          </div> */}
         </div>
         <button className="bg-white bg-opacity-20 backdrop-blur-sm text-black rounded-2xl h-[50px] shadow-lg hover:bg-opacity-40 text-xl w-full" onClick={handleGenerateSong}>Send</button>
       </div>
@@ -80,7 +79,7 @@ export function TextareaWithButton() {
       <ErrorModal
         showError={showError}
         onClose={() => setShowError(false)}
-        errorMessage={"An unexpected error occurred"}
+        errorMessage={"Дұрыс емес, қайталап көріңіз"}
       />
       <LoadingModal isLoading={isGenerating} />
       
