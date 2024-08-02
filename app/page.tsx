@@ -21,7 +21,7 @@ export default function Home() {
   // }, []);
 
   return (
-    <div className="relative flex items-center justify-center w-full h-screen bg-cover bg-center bg-[url('/model/stage2.png')]">
+    <div className="relative flex items-center justify-center w-full h-screen bg-cover bg-center bg-[url('/model/stage2.png')] overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-transparent md:block hidden">
         <Canvas
           shadows
