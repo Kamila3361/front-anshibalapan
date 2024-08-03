@@ -9,7 +9,6 @@ const Songs = () => {
   const { data, isLoading, isSuccess } = useSongs();
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Filter songs based on search query
   const filteredSongs = isSuccess 
     ? data.filter(song => 
         song.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
