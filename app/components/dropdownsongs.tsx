@@ -46,7 +46,7 @@ const DropSongs = () => {
           <div className='flex flex-col gap-[10px] overflow-y-auto max-h-[400px]'>
             {isSuccess && filteredSongs.slice().reverse().map((song, index) => (
               <span key={index}>
-                <Song title={song.title} tags={song.tags} songUrl={song.song_location} mouthCues={song.mouth_cue}/>
+                <Song title={song.title} tags={song.tags} songUrl={song.song_location} mouthCues={song.mouth_cue} lyrics={song.lyric}/>
               </span>
             ))}
           </div>
