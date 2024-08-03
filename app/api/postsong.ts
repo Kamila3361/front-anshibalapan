@@ -12,6 +12,7 @@ interface SongData{
 interface SongType {
     musicUrl: string;
     title: string;
+    lyric: string;
     // mouthCues: MouthCue[];
 }
 

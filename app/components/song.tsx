@@ -11,11 +11,12 @@ interface PlaylistsCardProps {
   tags: string[];
   songUrl: string;
   mouthCues: MouthCue[];
+  lyrics: string;
 }
 
-export default function Song({ title, tags, songUrl, mouthCues }: PlaylistsCardProps) {
+export default function Song({ title, tags, songUrl, mouthCues, lyrics }: PlaylistsCardProps) {
   // const [isCurrentPlaying, setIsCurrentPlaying] = useState(false);
-  const { audioRef, isPlaying, setIsPlaying, setSongTitle, setSongUrl, currentSongTitle, setCurrentSongTitle, setMouthCue, setIsLyric } = useSinging();
+  const { audioRef, isPlaying, setIsPlaying, setSongTitle, setSongUrl, currentSongTitle, setCurrentSongTitle, setMouthCue, setIsLyric, setLyrics } = useSinging();
   let isCurrentPlaying = isPlaying && currentSongTitle === title;
   // const [currentTime, setCurrentTime] = useState<number>(0);
   const [isDownloading, setIsDownloading] = useState(false);
@@ -25,6 +26,7 @@ export default function Song({ title, tags, songUrl, mouthCues }: PlaylistsCardP
     setSongUrl(songUrl);
     setCurrentSongTitle(title);
     setMouthCue(mouthCues);
+    setLyrics(lyrics);
     setIsLyric(false);
     isCurrentPlaying = isPlaying && currentSongTitle === title;
     if (audioRef.current) {

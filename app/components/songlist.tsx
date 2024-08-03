@@ -24,7 +24,7 @@ const Songs = () => {
         <input 
           type='text' 
           placeholder='Search' 
-          className='w-[350px] h-[40px] pl-[15px] text-black rounded-2xl bg-white bg-opacity-20 custom-placeholder shadow backdrop-blur-sm text-xl'
+          className='w-full h-[40px] pl-[15px] text-black rounded-2xl bg-white bg-opacity-20 custom-placeholder shadow backdrop-blur-sm text-xl'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -32,7 +32,7 @@ const Songs = () => {
       <div className='flex flex-col gap-[10px] overflow-y-auto' style={{ flexGrow: 1 }}>
         {isSuccess && filteredSongs.slice().reverse().map((song, index) => (
           <span key={index}>
-            <Song title={song.title} tags={song.tags} songUrl={song.song_location} mouthCues={song.mouth_cue}/>
+            <Song title={song.title} tags={song.tags} songUrl={song.song_location} mouthCues={song.mouth_cue} lyrics={song.lyric}/>
           </span>
         ))}
       </div>

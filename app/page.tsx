@@ -32,7 +32,7 @@ export default function Home() {
           <Experience avatarPosition={[-1, -3, 1]} scale={2}/>
         </Canvas>
       </div>
-      <div className="absolute w-screen m-[10px] top-10 md:top-20 md:right-0 pointer-events-none h-screen md:w-[600px] md:mr-[100px]">
+      <div className="absolute w-screen m-[10px] top-10 md:top-20 md:right-0 pointer-events-none md:w-[600px] md:mr-[100px]">
         <TextareaWithButton />
       </div>
     </div>

@@ -67,8 +67,8 @@ export default function MusicBlock({title, songUrl}: PlaylistsCardProps) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-white bg-opacity-10 rounded-2xl px-[10px] h-[150px] w-full shadow-lg backdrop-blur-sm">
-      <div className="w-[250px] text-center">
+    <div className="flex flex-col justify-center items-center bg-white bg-opacity-10 rounded-2xl px-[10px] h-[250px] w-full shadow-lg backdrop-blur-sm">
+      <div className="w-[350px] text-center">
         <p className="font-bold text-black mb-[1px] text-2xl">{title.slice(0, 18)}</p>
       </div>
       <div className="flex items-center mt-1 w-full">

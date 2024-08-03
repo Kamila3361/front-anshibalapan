@@ -28,6 +28,8 @@ interface SingingContextType {
     setMouthCue: (mouthCue: MouthCue[]) => void;
     animation: string;
     setAnimation: (animation: string) => void;
+    lyrics: string;
+    setLyrics: (lyrics: string) => void;
 }
 
 export const SingingContext = createContext<SingingContextType | undefined>(undefined);
@@ -43,6 +45,7 @@ export const SingingProvider: React.FC<{ children: ReactNode }> = ({children}) =
     const [isLyric, setIsLyric] = useState<boolean>(false);
     const [mouthCue, setMouthCue] = useState<MouthCue[]>([]);
     const [animation, setAnimation] = useState("Happy");
+    const [lyrics, setLyrics] = useState<string>("");
 
     const handleTimeUpdate = () => {
         if (audioRef.current) {
@@ -76,7 +79,9 @@ export const SingingProvider: React.FC<{ children: ReactNode }> = ({children}) =
             mouthCue,
             setMouthCue,
             animation,
-            setAnimation
+            setAnimation,
+            lyrics,
+            setLyrics
         }}>
             {children}
             <audio ref={audioRef} onTimeUpdate={handleTimeUpdate} onLoadedMetadata={handleLoadedMetadata} />
