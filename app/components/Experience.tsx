@@ -13,14 +13,14 @@ interface Props {
 }
 
 export const Experience = ({avatarPosition, scale}: Props) => {
-  const texture = useTexture("/model/stage2.png");
+  const texture = useTexture("/model/old.png");
   const viewport = useThree((state) => state.viewport);
   const orbitControls = useRef(null);
 
   return (
     <>
       <Suspense fallback={null}>
-        <ambientLight intensity={0.8} /> {/* Ambient light */}
+        <ambientLight intensity={3} /> {/* Ambient light */}
         <directionalLight position={[10, 10, 10]} intensity={1.5} /> {/* Directional light */}
         <OrbitControls ref={orbitControls} />
         {/* Your 3D objects go here */}
@@ -28,7 +28,7 @@ export const Experience = ({avatarPosition, scale}: Props) => {
         {/* <Environment preset="sunset" /> */}
         <mesh position={[0, 0, 0]}>
           <planeGeometry args={[viewport.width, viewport.height]} />
-          <meshBasicMaterial map={texture} />
+          <meshBasicMaterial map={texture} toneMapped={false}/>
         </mesh>
       </Suspense>
       {/* <Avatar position={avatarPosition} scale={scale}/>

@@ -21,7 +21,7 @@ export default function Home() {
   // }, []);
 
   return (
-    <div className="relative flex items-center justify-center w-full h-screen bg-cover bg-center bg-[url('/model/stage2.png')] overflow-hidden">
+    <div className="relative flex items-center justify-center w-full h-screen bg-cover bg-center bg-[url('/model/old.png')] overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-transparent md:block hidden">
         <Canvas
           shadows
@@ -32,7 +32,7 @@ export default function Home() {
           <Experience avatarPosition={[-1, -3, 1]} scale={2}/>
         </Canvas>
       </div>
-      <div className="absolute w-screen m-[10px] top-10 md:top-20 md:right-0 pointer-events-none md:w-[600px] md:mr-[100px]">
+      <div className="absolute top-20 mt-[80px] md:right-0 pointer-events-none mx-[45px] w-full md:w-[650px]">
         <TextareaWithButton />
       </div>
     </div>

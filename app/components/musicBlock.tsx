@@ -22,10 +22,7 @@ export default function MusicBlock() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-white bg-opacity-10 rounded-2xl px-[10px] h-[150px] w-full shadow-lg backdrop-blur-sm">
-      <div className="w-[250px] text-center">
-        <p className="font-bold text-black mb-[1px] text-2xl">{songTitle.slice(0, 15)}</p>
-      </div>
+    <div className="flex flex-col justify-center items-center bg-white rounded-xl px-[10px] h-[150px] w-full">
       <div className="flex items-center mt-1 w-full">
         <span className="text-black">{Math.floor(currentTime / 60)}:{('0' + Math.floor(currentTime % 60)).slice(-2)}</span>
         <input

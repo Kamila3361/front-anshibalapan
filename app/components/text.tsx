@@ -47,31 +47,35 @@ export function TextareaWithButton() {
   };
 
   return (
-    <div className="flex flex-col gap-[15px] bg-white bg-opacity-20 rounded-2xl backdrop-blur-sm p-[15px] mt-[50px] pointer-events-auto w-full" style={{ height: 'calc(100vh - 300px)', marginBottom: '300px' }}>
-      <h1 className='text-5xl font-bold relative'>Өз өлең</h1>
+    <div className="flex flex-col gap-[30px] bg-white rounded-xl p-[30px] pointer-events-auto w-full md:w-[650px]" style={{ height: 'calc(100vh - 300px)', marginBottom: '300px' }}>
       {!showMusicBlock ? (
         <>
-          <div className="flex flex-col gap-[10px] w-full h-full">
+          <h1 className='text-4xl font-semibold relative'>Өз әуеніңді сипатта</h1>
+          <div className="flex flex-col gap-[30px] w-full h-full">
             <div className='relative w-full h-full'>
               <textarea
-                placeholder='Менің анам туралы өлең шығарып бер'
+                placeholder='Өз әуеніңді сипатта'
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                className='w-full text-xl h-full px-[15px] pt-[10px] text-black rounded-2xl bg-white bg-opacity-20 custom-placeholder shadow-lg backdrop-blur-sm resize-none'
+                className='w-full text-xl h-full px-[15px] pt-[10px] text-black rounded-xl bg-gray-200'
               />
             </div>
-            <button className="bg-white bg-opacity-20 backdrop-blur-sm text-black rounded-2xl h-[70px] shadow-lg hover:bg-opacity-40 text-xl w-full" onClick={handleGenerateSong}>Send</button>
+            <div className="flex gap-[20px]">
+              <button className="border p-[10px] bg-white font-medium rounded-xl w-[250px] text-left hover:bg-gray-200 text-xl" onClick={() => setPrompt("Таулар туралы ән")}>
+                Таулар туралы ән
+              </button>
+              <button className="border p-[10px] bg-white font-medium rounded-xl w-[250px] text-left hover:bg-gray-200 text-xl" onClick={() => setPrompt("Жануралар туралы ән")}>Жануарлар туралы ән</button>
+            </div>
+            <button className="bg-yellow-400 text-black rounded-xl h-[100px] font-semibold hover:bg-yellow-500 text-xl w-full" onClick={handleGenerateSong}>Әндет</button>
           </div>
         </>
       ) : (
         <>
-          <MusicBlock title={songTitle} songUrl={songUrl} />
-          <div className="bg-white bg-opacity-10 rounded-2xl p-[10px] h-full w-full shadow-lg backdrop-blur-sm overflow-auto">
-            <div className="text-base md:text-lg text-black whitespace-pre-wrap">
-              {newSong?.lyric}
-            </div>
+          <div className="text-center font-semibold text-2xl">{songTitle}</div>
+          <div className="md:text-2xl text-black overflow-auto h-full w-full px-[20px] text-base whitespace-pre-wrap">
+            {newSong?.lyric}
           </div>
-          <button className="bg-white bg-opacity-20 backdrop-blur-sm text-black rounded-2xl h-[110px] shadow-lg hover:bg-opacity-40 text-xl w-full mt-4" onClick={handleBack}>Артқа</button>
+          <MusicBlock title={songTitle} songUrl={songUrl} />
         </>
       )}
       <ErrorModal

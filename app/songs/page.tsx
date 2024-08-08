@@ -8,9 +8,9 @@ import DropSongs from "../components/dropdownsongs";
 import { useSinging } from "../context/sing";
 
 export default function Home() {
-  const { lyrics } = useSinging();
+  const { lyrics, songTitle } = useSinging();
   return (
-    <div className="relative flex items-center justify-center w-full h-screen bg-cover bg-center bg-[url('/model/stage2.png')] overflow-hidden">
+    <div className="relative flex items-center justify-center w-full h-screen bg-cover bg-center bg-[url('/model/old.png')] overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-transparent">
         <Canvas
           shadows
@@ -22,7 +22,7 @@ export default function Home() {
         </Canvas>
       </div>
       {/* Large and Medium Screens: Songs */}
-      <div className="hidden md:block absolute top-20 left-0 pointer-events-auto h-screen z-10">
+      <div className="hidden md:block absolute top-20 mt-[50px] left-[15px] w-[490px] pointer-events-auto h-screen z-10">
         <Songs />
       </div>
       {/* Small Screens: DropSongs */}
@@ -30,13 +30,12 @@ export default function Home() {
         <DropSongs />
       </div>
       {/* Lyrics bar */}
-      <div className="md:flex md:flex-col md:gap-[10px] absolute bottom-0 w-full md:w-[450px] h-[150px] md:h-auto md:top-20 md:right-0 md:left-auto pointer-events-auto md:p-[15px] bg-white bg-opacity-20 rounded-2xl backdrop-blur-sm z-20 md:mb-[10px]">
-        <MusicBlock />
-        <div className="bg-white bg-opacity-10 rounded-2xl p-[10px] h-full w-full shadow-lg backdrop-blur-sm overflow-auto">
-          <div className="text-base md:text-lg text-black whitespace-pre-wrap">
+      <div className="md:flex md:flex-col md:gap-[10px] absolute bottom-0 w-full md:w-[450px] h-[150px] md:h-auto md:top-20 md:mt-[60px] md:mr-[45px] md:right-0 md:left-auto pointer-events-auto md:p-[15px] bg-white rounded-xl z-20 md:mb-[10px]">
+        <div className="text-center font-semibold text-2xl">{songTitle}</div>
+          <div className="md:text-2xl text-black overflow-auto h-full w-full px-[20px] text-base whitespace-pre-wrap">
             {lyrics}
           </div>
-        </div>
+          <MusicBlock/>
       </div>
     </div>
   );

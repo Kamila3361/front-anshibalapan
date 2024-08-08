@@ -67,10 +67,10 @@ export default function MusicBlock({title, songUrl}: PlaylistsCardProps) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-white bg-opacity-10 rounded-2xl px-[10px] h-[250px] w-full shadow-lg backdrop-blur-sm">
-      <div className="w-[350px] text-center">
+    <div className="flex flex-col justify-center items-center rounded-2xl px-[10px] h-[100px] w-full">
+      {/* <div className="w-[350px] text-center">
         <p className="font-bold text-black mb-[1px] text-2xl">{title.slice(0, 18)}</p>
-      </div>
+      </div> */}
       <div className="flex items-center mt-1 w-full">
       <audio ref={audioRef} src={songUrl} onTimeUpdate={handleTimeUpdate} onLoadedMetadata={handleLoadedMetadata} />
         <span className="text-black">{Math.floor(currentTime / 60)}:{('0' + Math.floor(currentTime % 60)).slice(-2)}</span>
@@ -85,7 +85,7 @@ export default function MusicBlock({title, songUrl}: PlaylistsCardProps) {
             }
           }}
         />
-        <span className="text-black">{Math.floor(duration / 60)}:{('0' + Math.floor(duration % 60)).slice(-2)}</span>
+        <span className="text-black"></span>
       </div>
       <div>
         <button className="text-3xl bg-opacity-0 text-black p-2 mx-2" onClick={handlePlayPause} disabled={audioRef.current == null}>

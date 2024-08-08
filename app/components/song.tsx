@@ -93,7 +93,7 @@ export default function Song({ title, tags, songUrl, mouthCues, lyrics }: Playli
 
 
   return (
-    <div className="flex flex-row justify-center items-center bg-white bg-opacity-20 rounded-2xl h-[80px] w-full shadow-lg backdrop-blur-sm">
+    <div className="flex flex-row justify-center items-center bg-white rounded-xl h-[80px] w-full shadow-lg">
       <div>
         <button className="text-3xl bg-opacity-0 text-black p-1  mx-2" onClick={handlePlayPause}>
           {isCurrentPlaying ? <RiPauseFill /> : <RiPlayFill />}
